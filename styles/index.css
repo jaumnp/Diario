@@ -1,0 +1,15 @@
+@import url(global.css);
+@import url(page1.css);
+
+@font-face {
+    font-family: 'Oliver';
+    src: url('../assets/fonts/Oliver-Regular.ttf');
+}
+@font-face {
+    font-family: 'Quentin';
+    src: url('../assets/fonts/Quentin.otf');
+}
+@font-face {
+    font-family: 'DK';
+    src: url('../assets/fonts/DK\ Crayon\ Crumble.ttf');
+}

@@ -1,0 +1,21 @@
+:root {
+    font-size: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 22rem;
+    height: 100dvh;
+    border: 1px solid blue;
+    margin: 0 auto;
+    background-color: #e8e2e2;
+}
+
+body::-webkit-scrollbar { 
+  display: none;
+}

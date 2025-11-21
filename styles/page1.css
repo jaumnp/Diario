@@ -1,0 +1,91 @@
+.page1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100dvh;
+  color: #292221;
+
+  padding: 1rem;
+
+  .head {
+    display: flex;
+
+    .foto-principal {
+      width: 6rem;
+      position: relative;
+      margin-top: 0.6rem;
+
+      img:nth-child(1) {
+        max-width: 4.3rem;
+        object-fit: cover;
+      }
+
+      img:nth-child(2) {
+        object-fit: cover;
+        position: absolute;
+        width: 5rem;
+        height: 7rem;
+        top: -0.5rem;
+        left: -0.4rem;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      min-width: 9rem;
+
+      .titulo {
+        font-family: "DK", cursive;
+        font-size: 2.7rem;
+        line-height: 2rem;
+      }
+
+      .sub-content {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+
+        img {
+          width: 7.6rem;
+          top: -1.5rem;
+          left: -1.1rem;
+          transform: rotate(20deg);
+          object-fit: cover;
+          position: absolute;
+        }
+
+        div {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          padding-left: 2.3rem;
+          margin-left: 4rem;
+
+          span:nth-child(1) {
+            font-family: "DK", cursive;
+            font-size: 3rem;
+            line-height: 2rem;
+          }
+
+          span:nth-child(2) {
+            font-family: "Quentin", cursive;
+            font-size: 1.26rem;
+            line-height: 0.6rem;
+            margin-top: 0.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    p {
+      font-family: "Oliver", cursive;
+      font-size: 0.8rem;
+      line-height: 1rem;
+      transform: rotate(-0.7deg);
+    }
+  }
+}
