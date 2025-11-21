@@ -1,45 +1,68 @@
-const Player = function () {
+const Player = function (id) {
+  const button = document.getElementById(id);
   let song = 0;
+  let audio = new Audio();
 
   const songs = [
     {
       title: "Lua Cheia",
       artist: "Armandinho",
-      // path is relative to the HTML document (Diario/index.html),
-      // so use the assets path from that document
-      song: new Audio('assets/sounds/LuaCheia.mp3'),
+      path: 'assets/sounds/LuaCheia.mp3',
+    },
+    {
+      title: "Tocaia",
+      artist: "Yago Oproprio",
+      path: 'assets/sounds/Tocaia.mp3',
+    },
+    {
+      title: "Hilipa",
+      artist: "Yago Oproprio",
+      path: 'assets/sounds/Helipa.mp3',
     },
   ];
 
-  const update = function (index) {
+  const update = function (index, isPlayng) {
+    if (isPlayng) {
+        button.children[0].src = "assets/images/pause.svg";
+    } else {
+        button.children[0].src = "assets/images/play.svg";
+    }
     document.querySelector(".nome-musica").innerText = songs[index].title;
     document.querySelector(".nome-cantor").innerText = songs[index].artist;
   }
 
-  const playPause = function (id) {
-    if (!document.getElementById("id").classList.contains("playing")) {
-        document.getElementById("id").classList.add("playing");
-        document.getElementById("id").src = "assets/images/pause.svg";
-        songs[song].song.play();
+  const playPause = function () {
+    let isPlayng = !button.classList.contains("playing");
+
+    audio.src = songs[song].path;
+
+    if (isPlayng) {
+        button.classList.add("playing");
+        audio.play();
+        update(song, isPlayng);
     } else {
-        document.getElementById("id").classList.remove("playing");
-        document.getElementById("id").src = "assets/images/play.svg";
-        songs[song].song.pause();
+        button.classList.remove("playing");
+        audio.pause();
+        update(song, isPlayng)
     }
   }
 
   const next = function () {
-    playPause();
-
-    song = song > song.length ? 0 : song++;
+    audio.pause();
+    
+    song >= songs.length - 1 ? song = 0 : song++;
+    console.log(song);
     update(song);
+    playPause();
   }
 
   const pre = function () {
-    playPause();
+    audio.pause();
 
-    song = song < 0 ? songs.length - 1 : song--;
+    song <= 0 ? song = songs.length - 1 : song--;
+    console.log(song);
     update(song);
+    playPause();
   }
 
   return {playPause, next, pre};
